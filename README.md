@@ -25,7 +25,8 @@ Tarayıcı şu an aşağıdaki kritik başlıkları kontrol etmektedir:
 3. Terminal üzerinden aşağıdaki komutla taramayı başlatın:
 
 // ```bash
-python scanner.py
+// python scanner.py
+// .sol uzantılı dosyanızın adını girin
 
 
 ⚖️ Yasal Uyarı / Disclaimer
