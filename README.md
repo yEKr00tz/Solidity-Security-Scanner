@@ -24,7 +24,7 @@ Tarayıcı şu an aşağıdaki kritik başlıkları kontrol etmektedir:
 2. `scanner.py` dosyasını indirin.
 3. Terminal üzerinden aşağıdaki komutla taramayı başlatın:
 
-```bash
+// ```bash
 python scanner.py
 
 
