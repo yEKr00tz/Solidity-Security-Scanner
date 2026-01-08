@@ -24,11 +24,11 @@ Tarayıcı şu an aşağıdaki kritik başlıkları kontrol etmektedir:
 2. `scanner.py` dosyasını indirin.
 3. Terminal (CMD) üzerinden aşağıdaki komutla taramayı başlatın:
 
-   bash
+   1/ bash
 
-   python scanner.py 
+   2/ python scanner.py 
 
-   .sol uzantılı dosyanızın adını girin
+   3/.sol uzantılı dosyanızın adını girin
 
 
  ⚖️ Yasal Uyarı / Disclaimer
