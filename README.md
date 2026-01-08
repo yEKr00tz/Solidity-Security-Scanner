@@ -25,11 +25,14 @@ Tarayıcı şu an aşağıdaki kritik başlıkları kontrol etmektedir:
 3. Terminal üzerinden aşağıdaki komutla taramayı başlatın:
 
 ## ```bash
+
 ## python scanner.py
+
 ## .sol uzantılı dosyanızın adını girin
 
 
-##⚖️ Yasal Uyarı / Disclaimer
-Bu araç sadece eğitim amaçlıdır. Profesyonel projelerde tek başına yeterli değildir; manuel denetim ve Slither/Mythril gibi araçlarla desteklenmelidir. Kullanım sorumluluğu kullanıcıya aittir.
+## ⚖️ Yasal Uyarı / Disclaimer
 
-This tool is for educational purposes only. It should be used alongside professional audit tools. Use at your own risk.
+## Bu araç sadece eğitim amaçlıdır. Profesyonel projelerde tek başına yeterli değildir; manuel denetim ve Slither/Mythril gibi araçlarla desteklenmelidir. Kullanım sorumluluğu kullanıcıya aittir.
+
+## This tool is for educational purposes only. It should be used alongside professional audit tools. Use at your own risk.
