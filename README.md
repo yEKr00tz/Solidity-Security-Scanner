@@ -18,21 +18,20 @@ Tarayıcı şu an aşağıdaki kritik başlıkları kontrol etmektedir:
 - **.call{value:...}:** Reentrancy (Yeniden Giriş) saldırılarına karşı potansiyel zayıflık.
 - **abi.encodePacked:** Hash çakışması (collision) riski taşıyan veri kodlama yöntemi.
 
-## 🛠️ Kurulum ve Kullanım / Installation & Usage
+## 🛠 Kurulum ve Kullanım / Installation & Usage
 
 1. Sisteminizde Python yüklü olduğundan emin olun.
 2. `scanner.py` dosyasını indirin.
-3. Terminal üzerinden aşağıdaki komutla taramayı başlatın:
+3. Terminal (CMD) üzerinden aşağıdaki komutla taramayı başlatın:
 
-## ```bash
+ bash
+python scanner.py 
 
-## python scanner.py
-
-## .sol uzantılı dosyanızın adını girin
+.sol uzantılı dosyanızın adını girin
 
 
-## ⚖️ Yasal Uyarı / Disclaimer
+ ⚖️ Yasal Uyarı / Disclaimer
 
-## Bu araç sadece eğitim amaçlıdır. Profesyonel projelerde tek başına yeterli değildir; manuel denetim ve Slither/Mythril gibi araçlarla desteklenmelidir. Kullanım sorumluluğu kullanıcıya aittir.
+Bu araç sadece eğitim amaçlıdır. Profesyonel projelerde tek başına yeterli değildir; manuel denetim ve Slither/Mythril gibi araçlarla desteklenmelidir. Kullanım sorumluluğu kullanıcıya aittir.
 
-## This tool is for educational purposes only. It should be used alongside professional audit tools. Use at your own risk.
+ This tool is for educational purposes only. It should be used alongside professional audit tools. Use at your own risk.
