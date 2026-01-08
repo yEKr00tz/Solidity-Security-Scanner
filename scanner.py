@@ -3,37 +3,44 @@ import re
 import os
 
 def solidity_scanner():
-    # Kullanıcıdan dosya adını alır
-    file_path = input("Taramak istediğiniz .sol dosyasının adını yazın): ")
+    file_path = input("Taramak istediğiniz .sol dosyasının adını yazın: ").strip()
 
-    # Dosyanın var olup olmadığını kontrol eder
     if not os.path.exists(file_path):
-        print(f"Hata: '{file_path}' dosyası bulunamadı!")
+        print(f"Hata: '{file_path}' dosyası bulunamadı! Lütfen dosya adını ve uzantısını kontrol edin.")
         return
 
-    risks = {
-        "tx.origin": "Kritik: Phishing saldırısına yol açabilir.",
-        "selfdestruct": "Uyarı: Yetkisiz kontrat imhası riski.",
-        "delegatecall": "Kritik: Dış kod çalıştırma tehlikesi.",
-        ".call{value:": "Uyarı: Reentrancy (Yeniden Giriş) riski.",
-        "abi.encodePacked": "Uyarı: Hash çakışması riski."
+    
+    risk_patterns = {
+        r"tx\.origin": "KRİTİK: Phishing saldırısına yol açabilir (tx.origin kullanımı).",
+        r"selfdestruct": "UYARI: Yetkisiz kontrat imhası riski (selfdestruct).",
+        r"delegatecall": "KRİTİK: Dış kod çalıştırma tehlikesi (delegatecall).",
+        r"\.call\s*\{.*value": "UYARI: Reentrancy (Yeniden Giriş) riski (.call kullanımı).",
+        r"abi\.encodePacked": "UYARI: Hash çakışması riski (abi.encodePacked)."
     }
 
     try:
-        with open(file_path, 'r', encoding='utf-8') as file:
-            content = file.readlines()
+        with open(file_path, 'r', encoding='utf-8', errors='ignore') as file:
+            lines = file.readlines()
 
-        print(f"\n--- {file_path} Analiz Ediliyor ---\n")
+        print(f"\n--- {file_path} Analiz Ediliyor ---")
+        print("-" * 40)
         
         found_any = False
-        for line_num, line in enumerate(content, 1):
-            for key, message in risks.items():
-                if key in line:
-                    print(f"[SATIR {line_num}] {message} -> Bulunan: {key}")
+        for line_num, line in enumerate(lines, 1):
+            clean_line = line.strip()
+          
+            if clean_line.startswith("//") or clean_line.startswith("/*"):
+                continue
+
+            for pattern, message in risk_patterns.items():
+                if re.search(pattern, clean_line):
+                    print(f"[SATIR {line_num}] {message}")
                     found_any = True
         
         if not found_any:
-            print("Temiz! Kritik bir risk bulunamadı.")
+            print("\nTemiz! Belirlenen kritik riskler bulunamadı.")
+        else:
+            print("\nTarama tamamlandı. Yukarıdaki riskleri inceleyin.")
             
     except Exception as e:
         print(f"Dosya okunurken bir hata oluştu: {e}")
