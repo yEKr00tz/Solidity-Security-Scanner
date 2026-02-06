@@ -11,20 +11,21 @@ permissions:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
-   steps:
+    steps:
     - uses: actions/checkout@v4
+    
     - name: Set up Python
-      uses: actions/setup-dotnet@v4 
+      uses: actions/setup-python@v4  # Burayı düzelttik (dotnet değil python)
       with:
         python-version: "3.10"
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        # Eğer requirements.txt varsa burayı aktif et
-    - name: Syntax Check (The Green Tick Trick)
+
+    - name: Syntax Check
       run: |
-       
+        # Eğer dosya adın tam olarak scanner.py ise burası çalışır
         python -m py_compile scanner.py
